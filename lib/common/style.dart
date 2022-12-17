@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 class ColorName {
   static const softBlack = Color(0xFF373737);
   static const sofOrange = Color(0xFFFEAA6D);
+  static const otherOrange = Color(0xFFFFBB7C);
+  static const white = Color(0xFFFFFFFF);
 }
 
 class TextName {

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import 'package:personal_web/common/widget/hovering/provider/hovering_provider.dart';
-import 'package:personal_web/presesntation/ui/home_page.dart';
 import 'package:personal_web/presesntation/ui/home_page/main_home_page.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());

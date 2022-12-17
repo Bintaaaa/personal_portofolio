@@ -1,110 +1,114 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:personal_web/common/style.dart';
-import 'package:personal_web/common/widget/hovering/component/text_hovering.dart';
 import 'package:personal_web/utils/responsive_manager/base_on_mixin.dart';
 
-class HomePageWeb extends StatelessWidget with BaseOnMixin {
-  HomePageWeb({super.key});
+import '../../../common/widget/hovering/component/text_hovering.dart';
 
+class HomePageMobile extends StatelessWidget with BaseOnMixin {
+  HomePageMobile({super.key});
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, 70),
+      key: _key,
+      appBar: AppBar(
+        backgroundColor: ColorName.white,
+        leading: Container(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              _key.currentState!.openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu,
+              color: ColorName.sofOrange,
+            ),
+          )
+        ],
+      ),
+      drawer: Drawer(
         child: Container(
-          width: double.infinity,
-          height: 70.h,
-          decoration: const BoxDecoration(),
-          child: Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 128.0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextHovering(
-                  key: const ValueKey(1),
-                  colorHovering: ColorName.sofOrange,
-                  colorExit: ColorName.softBlack,
-                  title: 'About Me',
-                  index: 0,
-                ),
-                const SizedBox(
-                  width: 32.0,
-                ),
-                TextHovering(
-                  key: const ValueKey(2),
-                  colorHovering: ColorName.sofOrange,
-                  colorExit: ColorName.softBlack,
-                  title: 'Journey',
-                  index: 1,
-                ),
-                const SizedBox(
-                  width: 32.0,
-                ),
-                TextHovering(
-                  key: const ValueKey(3),
-                  colorHovering: ColorName.sofOrange,
-                  colorExit: ColorName.softBlack,
-                  title: 'Resume',
-                  index: 2,
-                ),
-              ],
-            ),
+          margin: EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 20.h),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              TextHovering(
+                key: const ValueKey(1),
+                colorHovering: ColorName.sofOrange,
+                colorExit: ColorName.softBlack,
+                title: 'About Me',
+                index: 0,
+              ),
+              SizedBox(
+                height: 24.0.w,
+              ),
+              TextHovering(
+                key: const ValueKey(2),
+                colorHovering: ColorName.sofOrange,
+                colorExit: ColorName.softBlack,
+                title: 'Journey',
+                index: 1,
+              ),
+              SizedBox(
+                height: 24.0.w,
+              ),
+              TextHovering(
+                key: const ValueKey(3),
+                colorHovering: ColorName.sofOrange,
+                colorExit: ColorName.softBlack,
+                title: 'Resume',
+                index: 2,
+              ),
+            ],
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.symmetric(
-                horizontal: 50.w,
+                horizontal: 30.w,
                 vertical: 10.h,
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: Wrap(
-                      direction: Axis.vertical,
-                      children: [
-                        Text(
-                          'Hi, this is Bijantyum',
-                          style: fontUtils.anekOdia.size13.bold(context),
-                        ),
-                        Text(
-                          "I am a  child, who aspires to be a programmer\nwho is good and can be imitated by many\npeople",
-                          style: fontUtils.anekOdia.size6.light(context),
-                        )
-                      ],
-                    ),
+                  Image.asset(
+                    "assets/pict_me.png",
+                    width: 250.w,
+                    height: 250.h,
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: Image.asset(
-                      "assets/pict_me.png",
-                      width: 400.w,
-                      height: 400.h,
-                    ),
+                  Wrap(
+                    direction: Axis.vertical,
+                    children: [
+                      Text(
+                        'Hi, this is Bijantyum',
+                        style: fontUtils.anekOdia.size24.bold(context),
+                      ),
+                      Text(
+                        "I am a  child, who aspires to be a programmer\nwho is good and can be imitated by many\npeople",
+                        style: fontUtils.anekOdia.size16.light(context),
+                      )
+                    ],
                   ),
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                right: 50.w,
-                left: 50.w,
-                top: 100.h,
-                bottom: 30.h,
-              ),
-              child: Text(
-                'Daily Mood',
-                style: fontUtils.anekOdia.size10.bold(context),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: EdgeInsets.only(
+                  right: 30.w,
+                  left: 30.w,
+                  top: 20.h,
+                  bottom: 10.h,
+                ),
+                child: Text(
+                  'Daily Mood',
+                  style: fontUtils.anekOdia.size20.bold(context),
+                ),
               ),
             ),
             Container(
@@ -112,6 +116,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                 horizontal: 20.w,
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     flex: 1,
@@ -121,12 +126,12 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       children: [
                         Image.asset(
                           "assets/mood_1.png",
-                          width: 100.w,
-                          height: 100.h,
+                          width: 50.w,
+                          height: 50.h,
                         ),
                         Text(
                           'Glad something\nhappened',
-                          style: fontUtils.anekOdia.size4.light(
+                          style: fontUtils.anekOdia.size10.light(
                             context,
                           ),
                           textAlign: TextAlign.center,
@@ -134,6 +139,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       ],
                     ),
                   ),
+                  const Spacer(),
                   Expanded(
                     child: Wrap(
                       direction: Axis.vertical,
@@ -141,12 +147,12 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       children: [
                         Image.asset(
                           "assets/mood_4.png",
-                          width: 100.w,
-                          height: 100.h,
+                          width: 50.w,
+                          height: 50.h,
                         ),
                         Text(
                           'Easy to laugh\nand cringe',
-                          style: fontUtils.anekOdia.size4.light(
+                          style: fontUtils.anekOdia.size10.light(
                             context,
                           ),
                           textAlign: TextAlign.center,
@@ -154,6 +160,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       ],
                     ),
                   ),
+                  const Spacer(),
                   Expanded(
                     child: Wrap(
                       direction: Axis.vertical,
@@ -161,12 +168,12 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       children: [
                         Image.asset(
                           "assets/mood_3.png",
-                          width: 100.w,
-                          height: 100.h,
+                          width: 50.w,
+                          height: 50.h,
                         ),
                         Text(
                           'Appreciation for\nmyself',
-                          style: fontUtils.anekOdia.size4.light(
+                          style: fontUtils.anekOdia.size10.light(
                             context,
                           ),
                           textAlign: TextAlign.center,
@@ -174,6 +181,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       ],
                     ),
                   ),
+                  const Spacer(),
                   Expanded(
                     flex: 2,
                     child: Wrap(
@@ -182,12 +190,12 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       children: [
                         Image.asset(
                           "assets/mood_2.png",
-                          width: 100.w,
-                          height: 100.h,
+                          width: 50.w,
+                          height: 50.h,
                         ),
                         Text(
                           'Angry bcs can’t to\n solve the problem',
-                          style: fontUtils.anekOdia.size4.light(
+                          style: fontUtils.anekOdia.size10.light(
                             context,
                           ),
                           textAlign: TextAlign.center,
@@ -198,28 +206,31 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                right: 50.w,
-                left: 50.w,
-                top: 100.h,
-                bottom: 30.h,
-              ),
-              child: Text(
-                'Little Touch',
-                style: fontUtils.anekOdia.size10.bold(context),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: EdgeInsets.only(
+                  right: 30.w,
+                  left: 30.w,
+                  top: 30.h,
+                  bottom: 10.h,
+                ),
+                child: Text(
+                  'Little Touch',
+                  style: fontUtils.anekOdia.size20.bold(context),
+                ),
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
-                horizontal: 50.w,
+                horizontal: 30.w,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    height: 350.h,
-                    width: 70.w,
+                    height: 110.h,
+                    width: 75.w,
                     padding: EdgeInsets.all(8.0.w),
                     decoration: BoxDecoration(
                       image: const DecorationImage(
@@ -228,7 +239,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(30.0),
+                      borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -255,12 +266,9 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    width: 6.w,
-                  ),
                   Container(
-                    height: 350.h,
-                    width: 100.w,
+                    height: 110.h,
+                    width: 135.w,
                     padding: EdgeInsets.all(8.0.w),
                     decoration: BoxDecoration(
                       image: const DecorationImage(
@@ -269,7 +277,7 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(25.0),
+                      borderRadius: BorderRadius.circular(18.0),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,16 +291,13 @@ class HomePageWeb extends StatelessWidget with BaseOnMixin {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    width: 8.w,
-                  ),
                   Container(
-                    height: 350.h,
-                    width: 70.w,
-                    padding: EdgeInsets.all(4.0.w),
+                    height: 110.h,
+                    width: 75.w,
+                    padding: EdgeInsets.all(8.0.w),
                     decoration: BoxDecoration(
                       color: ColorName.otherOrange,
-                      borderRadius: BorderRadius.circular(25.0),
+                      borderRadius: BorderRadius.circular(18.0),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

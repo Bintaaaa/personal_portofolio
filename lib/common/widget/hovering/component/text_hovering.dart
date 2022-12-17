@@ -32,9 +32,15 @@ class TextHovering extends StatelessWidget with BaseOnMixin {
       child: InkWell(
         child: Text(
           title,
-          style: fontUtils.anekOdia.size4.thin(context).copyWith(
-                color: context.watch<TextHoveringProvider>().listColor?[index],
-              ),
+          style: sizerManager.isWebOrDesktop(context)
+              ? fontUtils.anekOdia.size4.thin(context).copyWith(
+                    color:
+                        context.watch<TextHoveringProvider>().listColor?[index],
+                  )
+              : fontUtils.anekOdia.size16.thin(context).copyWith(
+                    color:
+                        context.watch<TextHoveringProvider>().listColor?[index],
+                  ),
         ),
       ),
     );

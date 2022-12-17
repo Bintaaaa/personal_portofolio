@@ -48,6 +48,12 @@ class FontFamily {
 
   FontType get size4 => FontType(_family, 4);
 
+  FontType get size6 => FontType(_family, 6);
+
+  FontType get size8 => FontType(_family, 8);
+
+  FontType get size10 => FontType(_family, 10);
+
   FontType get size => FontType(_family, 11);
 
   FontType get size12 => FontType(_family, 12);
@@ -59,6 +65,10 @@ class FontFamily {
   FontType get size15 => FontType(_family, 15);
 
   FontType get size16 => FontType(_family, 16);
+
+  FontType get size20 => FontType(_family, 20);
+
+  FontType get size24 => FontType(_family, 24);
 }
 
 class FontUtils {

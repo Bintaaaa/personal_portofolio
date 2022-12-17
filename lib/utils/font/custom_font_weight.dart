@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_web/common/style.dart';
 import 'package:personal_web/utils/font/font_loader.dart';
 
 enum CustomFontWeight {
@@ -15,9 +16,9 @@ enum CustomFontWeight {
 
 enum FontFamilyType { anekOdia }
 
-extension FontFamilyTypeExtention on CustomFontWeight {
-  bool get isAnekOdia => this == FontFamilyType.anekOdia;
-}
+// extension FontFamilyTypeExtention on CustomFontWeight {
+//   bool get isAnekOdia => this == FontFamilyType.anekOdia;
+// }
 
 extension FontWeightExtention on CustomFontWeight {
   FontWeight get values {
@@ -56,7 +57,7 @@ class FontType {
 
   TextStyle thin(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -75,7 +76,7 @@ class FontType {
 
   TextStyle thinItalic(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -96,7 +97,7 @@ class FontType {
 
   TextStyle extraLight(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -117,7 +118,7 @@ class FontType {
 
   TextStyle light(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -138,7 +139,7 @@ class FontType {
 
   TextStyle regular(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -159,7 +160,7 @@ class FontType {
 
   TextStyle lightItalic(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -180,7 +181,7 @@ class FontType {
 
   TextStyle medium(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -201,7 +202,7 @@ class FontType {
 
   TextStyle mediumItalic(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -222,7 +223,7 @@ class FontType {
 
   TextStyle semiBold(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -243,7 +244,7 @@ class FontType {
 
   TextStyle bold(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
@@ -264,7 +265,7 @@ class FontType {
 
   TextStyle extraBold(
     BuildContext context, {
-    Color? color = Colors.black,
+    Color? color = ColorName.softBlack,
     TextDecoration? decoration = TextDecoration.none,
     double? tabletSize,
     double? webOrDesktopSize,
